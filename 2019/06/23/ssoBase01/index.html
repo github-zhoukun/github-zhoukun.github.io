@@ -103,17 +103,17 @@
 <meta property="og:site_name" content="Hello Stranger">
 <meta property="og:description" content="SSO知识概要 初始篇前言  受惠于人，授惠于人。  我是在16年4月正式踏进了互联网开发这个行业，作为一个统招大专生和手拿自考本科的实习生来说，在上海入职第一家公司实属幸运！ 记得16年的末上海房价疯涨，一天一个价。 金融出现了牛市，闭着眼睛投都能赚钱。表面看起来都是一切美好的开始，18年开始特朗普贸易战，互联网行业开始贩卖焦虑，大数据，区块链，算法，AI，996。互联网科技在这两年的发展速度前">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://github-zhoukun.github.io/2019/06/23/images/Session_cookic.png">
-<meta property="og:image" content="https://github-zhoukun.github.io/2019/06/23/images/单机、多机.png">
-<meta property="og:image" content="https://github-zhoukun.github.io/2019/06/23/images/session一致性问题.png">
+<meta property="og:image" content="https://github-zhoukun.github.io/images/Session_cookic.png">
+<meta property="og:image" content="https://github-zhoukun.github.io/images/单机、多机.png">
+<meta property="og:image" content="https://github-zhoukun.github.io/images/session一致性问题.png">
 <meta property="og:image" content="https://github-zhoukun.github.io/2019/06/23/images/session复制.png">
 <meta property="og:image" content="https://github-zhoukun.github.io/2019/06/23/images/session统一存储.png">
 <meta property="og:image" content="https://github-zhoukun.github.io/2019/06/23/images/jwt.jpg">
-<meta property="og:updated_time" content="2019-06-23T11:42:42.866Z">
+<meta property="og:updated_time" content="2019-06-23T11:51:53.009Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一：SSO 基础篇">
 <meta name="twitter:description" content="SSO知识概要 初始篇前言  受惠于人，授惠于人。  我是在16年4月正式踏进了互联网开发这个行业，作为一个统招大专生和手拿自考本科的实习生来说，在上海入职第一家公司实属幸运！ 记得16年的末上海房价疯涨，一天一个价。 金融出现了牛市，闭着眼睛投都能赚钱。表面看起来都是一切美好的开始，18年开始特朗普贸易战，互联网行业开始贩卖焦虑，大数据，区块链，算法，AI，996。互联网科技在这两年的发展速度前">
-<meta name="twitter:image" content="https://github-zhoukun.github.io/2019/06/23/images/Session_cookic.png">
+<meta name="twitter:image" content="https://github-zhoukun.github.io/images/Session_cookic.png">
 
 
 
@@ -338,13 +338,9 @@
                 
               
 
-              <time title="Created: 2019-06-23 19:34:18 / Modified: 19:42:42" itemprop="dateCreated datePublished" datetime="2019-06-23T19:34:18+08:00">2019-06-23</time>
+              <time title="Created: 2019-06-23 19:51:53" itemprop="dateCreated datePublished" datetime="2019-06-23T19:51:53+08:00">2019-06-23</time>
             
 
-            
-              
-
-              
             
           </span>
 
@@ -401,7 +397,7 @@
 
 服务员 不记得发生了什么！  
 </code></pre><p>当服务员需要知道每次访问的是谁？上次干了什么？session、cookie这时站了出来！</p>
-<h4 id="Session-、Cookie"><a href="#Session-、Cookie" class="headerlink" title="Session 、Cookie"></a>Session 、Cookie</h4><p><img src="../images/Session_cookic.png" alt="session/cookic"><br></p>
+<h4 id="Session-、Cookie"><a href="#Session-、Cookie" class="headerlink" title="Session 、Cookie"></a>Session 、Cookie</h4><p><img src="/images/Session_cookic.png" alt="session/cookic"><br></p>
 <ul>
 <li><p><strong>Session</strong>：存在服务器端  维护了客户端每次请求的一些信息</p>
 </li>
@@ -435,7 +431,7 @@
 <p>小明 问 服务员 多少钱 并且把编号告诉 服务员！ 服务员根据编码知道了小明之前问的泡泡糖 服务员告诉小明泡泡糖价格！</p>
 <p>我们把 小明当成浏览器 服务员当前服务器  小本本为Seesion   编号为cookie的信息 我们就不难理解这样设计的初衷了！</p>
 <h2 id="Session一致性"><a href="#Session一致性" class="headerlink" title="Session一致性"></a>Session一致性</h2><p>首先我们来看一张图</p>
-<p><img src="../images/单机、多机.png" alt="war部署"></p>
+<p><img src="/images/单机、多机.png" alt="war部署"></p>
 <h4 id="部署和扩容"><a href="#部署和扩容" class="headerlink" title="部署和扩容"></a>部署和扩容</h4><p>左边在我们业务量较小的时候基本的部署模式</p>
 <p>右边在业务量增长到单机无法支撑的时候我们就需要扩容（多机部署）</p>
 <ul>
@@ -450,7 +446,7 @@
 </ul>
 <p>互联网开发公司常用的就是水平扩容基本所有服务就是多机部署的！在老东家管易云双十一的时候服务都是20台以上，平常数据迁移也是11台机器部署服务的。老东家大搜车汽车零售软件其实也是双机部署的。<strong>但是机器是昂贵的我们还要充分分析系统的瓶颈，提升单机性能，再考虑加机器吧。</strong></p>
 <h4 id="多机部署的登入问题"><a href="#多机部署的登入问题" class="headerlink" title="多机部署的登入问题"></a>多机部署的登入问题</h4><p>假设现在有个小网站<a href="http://www.ts.com" target="_blank" rel="noopener">www.ts.com</a>  小明打开电脑打开Chrome浏览器登入 </p>
-<p><img src="../images/session一致性问题.png" alt="session一致性问题"></p>
+<p><img src="/images/session一致性问题.png" alt="session一致性问题"></p>
 <p>1.0 小明登入 <a href="http://www.ts.com" target="_blank" rel="noopener">www.ts.com</a></p>
 <p>1.1 通过负载均衡 路由到0.3机器</p>
 <p>1.2 验证密码账号成功 设置isLogin=true </p>
@@ -571,15 +567,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/06/23/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/23/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

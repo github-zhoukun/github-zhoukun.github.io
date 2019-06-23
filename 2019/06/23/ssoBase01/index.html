@@ -106,10 +106,10 @@
 <meta property="og:image" content="https://github-zhoukun.github.io/images/Session_cookic.png">
 <meta property="og:image" content="https://github-zhoukun.github.io/images/单机、多机.png">
 <meta property="og:image" content="https://github-zhoukun.github.io/images/session一致性问题.png">
-<meta property="og:image" content="https://github-zhoukun.github.io/2019/06/23/images/session复制.png">
-<meta property="og:image" content="https://github-zhoukun.github.io/2019/06/23/images/session统一存储.png">
-<meta property="og:image" content="https://github-zhoukun.github.io/2019/06/23/images/jwt.jpg">
-<meta property="og:updated_time" content="2019-06-23T11:51:53.009Z">
+<meta property="og:image" content="https://github-zhoukun.github.io/images/session复制.png">
+<meta property="og:image" content="https://github-zhoukun.github.io/images/session统一存储.png">
+<meta property="og:image" content="https://github-zhoukun.github.io/images/jwt.jpg">
+<meta property="og:updated_time" content="2019-06-23T12:36:17.908Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一：SSO 基础篇">
 <meta name="twitter:description" content="SSO知识概要 初始篇前言  受惠于人，授惠于人。  我是在16年4月正式踏进了互联网开发这个行业，作为一个统招大专生和手拿自考本科的实习生来说，在上海入职第一家公司实属幸运！ 记得16年的末上海房价疯涨，一天一个价。 金融出现了牛市，闭着眼睛投都能赚钱。表面看起来都是一切美好的开始，18年开始特朗普贸易战，互联网行业开始贩卖焦虑，大数据，区块链，算法，AI，996。互联网科技在这两年的发展速度前">
@@ -338,9 +338,13 @@
                 
               
 
-              <time title="Created: 2019-06-23 19:51:53" itemprop="dateCreated datePublished" datetime="2019-06-23T19:51:53+08:00">2019-06-23</time>
+              <time title="Created: 2019-06-23 19:51:53 / Modified: 20:36:17" itemprop="dateCreated datePublished" datetime="2019-06-23T19:51:53+08:00">2019-06-23</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -472,10 +476,10 @@
 </li>
 </ul>
 <p><strong>缺点：</strong>如果<strong>192.0.0.3</strong> 和 <strong>192.0.0.4</strong>两台机器其中<strong>192.0.0.3</strong>宕掉，产生单点故障。</p>
-<h4 id="二：session复制"><a href="#二：session复制" class="headerlink" title="二：session复制"></a>二：session复制</h4><p><img src="../images/session复制.png" alt="session复制"></p>
+<h4 id="二：session复制"><a href="#二：session复制" class="headerlink" title="二：session复制"></a>二：session复制</h4><p><img src="/images/session复制.png" alt="session复制"></p>
 <p>这是Tomcat提供的解决方案，具体是两台tomcat服务器之间进行session数据同步！</p>
 <p><strong>缺点：</strong> 多台服务器之间数据同步造成性能问题！</p>
-<h4 id="三：session统一存储"><a href="#三：session统一存储" class="headerlink" title="三：session统一存储"></a>三：session统一存储</h4><p><img src="../images/session统一存储.png" alt="session统一存储"></p>
+<h4 id="三：session统一存储"><a href="#三：session统一存储" class="headerlink" title="三：session统一存储"></a>三：session统一存储</h4><p><img src="/images/session统一存储.png" alt="session统一存储"></p>
 <p>为了减轻服务器之间同步压力，既然是每台服务器都存储session为什么不统一存储起来，统一的访问呢？ </p>
 <p>这就是第三种方案session统一存储，存储的介质很多：</p>
 <ul>
@@ -515,7 +519,7 @@
 </ol>
 <p>衍生了另一种方式 <strong>Token</strong> 常用方式，它既可以当作请求参数传入也可以放入cookie中！<strong>Token</strong>就是一串唯一身份标识符。常用的Token一般识用账户唯一信息+加密的key通过加密算法（HSA/MD5）等方式生成一串唯一标识符。</p>
 <p>接下来我来介绍一种封装<strong>Token</strong>框架 <a href="https://jwt.io/" target="_blank" rel="noopener"><strong>JWT</strong></a>（Json Web Token）。</p>
-<p><img src="../images/jwt.jpg" alt="jwt"></p>
+<p><img src="/images/jwt.jpg" alt="jwt"></p>
 <p>通过这张官网的图我们可以简单得知 它分为三块：</p>
 <ul>
 <li><p><strong>HEADER</strong>：头 包含了 <em>加密算法</em> 和 <em>加密类型</em></p>

@@ -96,20 +96,31 @@
 
 
 
-  <meta property="og:type" content="website">
+  <meta name="description" content="title: sso一 初始片 SSO知识概要 初始篇前言  受惠于人，授惠于人。  我是在16年4月正式踏进了互联网开发这个行业，作为一个统招大专生和手拿自考本科的实习生来说，在上海入职第一家公司实属幸运！ 记得16年的末上海房价疯涨，一天一个价。 金融出现了牛市，闭着眼睛投都能赚钱。表面看起来都是一切美好的开始，18年开始特朗普贸易战，互联网行业开始贩卖焦虑，大数据，区块链，算法，AI，996">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hello Stranger">
-<meta property="og:url" content="https://github-zhoukun.github.io/index.html">
+<meta property="og:url" content="https://github-zhoukun.github.io/2019/06/23/ssoBase01/index.html">
 <meta property="og:site_name" content="Hello Stranger">
+<meta property="og:description" content="title: sso一 初始片 SSO知识概要 初始篇前言  受惠于人，授惠于人。  我是在16年4月正式踏进了互联网开发这个行业，作为一个统招大专生和手拿自考本科的实习生来说，在上海入职第一家公司实属幸运！ 记得16年的末上海房价疯涨，一天一个价。 金融出现了牛市，闭着眼睛投都能赚钱。表面看起来都是一切美好的开始，18年开始特朗普贸易战，互联网行业开始贩卖焦虑，大数据，区块链，算法，AI，996">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://github-zhoukun.github.io/Users/zhoukun/Downloads/Session_cookic.png">
+<meta property="og:image" content="https://github-zhoukun.github.io/Users/zhoukun/Downloads/单机、多机.png">
+<meta property="og:image" content="https://github-zhoukun.github.io/Users/zhoukun/Downloads/session一致性问题.png">
+<meta property="og:image" content="https://github-zhoukun.github.io/Users/zhoukun/Downloads/session复制.png">
+<meta property="og:image" content="https://github-zhoukun.github.io/Users/zhoukun/Downloads/session统一存储.png">
+<meta property="og:image" content="https://github-zhoukun.github.io/Users/zhoukun/Downloads/jwt.jpg">
+<meta property="og:updated_time" content="2019-06-23T11:13:39.600Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello Stranger">
+<meta name="twitter:description" content="title: sso一 初始片 SSO知识概要 初始篇前言  受惠于人，授惠于人。  我是在16年4月正式踏进了互联网开发这个行业，作为一个统招大专生和手拿自考本科的实习生来说，在上海入职第一家公司实属幸运！ 记得16年的末上海房价疯涨，一天一个价。 金融出现了牛市，闭着眼睛投都能赚钱。表面看起来都是一切美好的开始，18年开始特朗普贸易战，互联网行业开始贩卖焦虑，大数据，区块链，算法，AI，996">
+<meta name="twitter:image" content="https://github-zhoukun.github.io/Users/zhoukun/Downloads/Session_cookic.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://github-zhoukun.github.io/">
+  <link rel="canonical" href="https://github-zhoukun.github.io/2019/06/23/ssoBase01/">
 
 
 
@@ -119,7 +130,7 @@
   };
 </script>
 
-  <title>Hello Stranger</title>
+  <title> | Hello Stranger</title>
   
 
 
@@ -167,8 +178,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -206,7 +216,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -268,9 +278,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -303,9 +313,7 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/06/23/ssoBase01/" class="post-title-link" itemprop="url">Untitled</a>
+
               
             
           </h1>
@@ -365,9 +373,7 @@
       
 
       
-        
-          
-            <p>title: sso一 初始片</p>
+        <p>title: sso一 初始片</p>
 <h1 id="SSO知识概要-初始篇"><a href="#SSO知识概要-初始篇" class="headerlink" title="SSO知识概要 初始篇"></a>SSO知识概要 初始篇</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
 <p> 受惠于人，授惠于人。</p>
 </blockquote>
@@ -533,8 +539,6 @@
 <p>这个工具类稍微比较简陋，朋友可以自行研究研究！具体通过它实现SSO我们先放到后面再讲，这里就不在展开讲了！</p>
 <h2 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h2><p>上面讲了这么多只是讲了一些基础 后面会讲讲什么是单点登入？切入点？我们怎么来实现？跨域如何解决？</p>
 
-          
-        
       
     </div>
 
@@ -557,159 +561,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github-zhoukun.github.io/2019/01/26/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="拔剑四顾心茫然">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello Stranger">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/01/26/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-              
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
+              <a href="/2019/01/26/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
             
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-01-26 15:18:06" itemprop="dateCreated datePublished" datetime="2019-01-26T15:18:06+08:00">2019-01-26</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -719,14 +592,15 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -747,8 +621,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -792,6 +675,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SSO知识概要-初始篇"><span class="nav-number">1.</span> <span class="nav-text">SSO知识概要 初始篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-和-Session-、Cookic"><span class="nav-number">1.2.</span> <span class="nav-text">HTTP 和 Session 、Cookic</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP介绍"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">HTTP介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Session-、Cookie"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">Session 、Cookie</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Session一致性"><span class="nav-number">1.3.</span> <span class="nav-text">Session一致性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#部署和扩容"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">部署和扩容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多机部署的登入问题"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">多机部署的登入问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一：粘性session"><span class="nav-number">1.3.0.3.</span> <span class="nav-text">一：粘性session</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二：session复制"><span class="nav-number">1.3.0.4.</span> <span class="nav-text">二：session复制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三：session统一存储"><span class="nav-number">1.3.0.5.</span> <span class="nav-text">三：session统一存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四：Token方式"><span class="nav-number">1.3.0.6.</span> <span class="nav-text">四：Token方式</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#引子"><span class="nav-number">1.4.</span> <span class="nav-text">引子</span></a></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -919,6 +819,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
 
   
 
@@ -929,6 +833,8 @@
 
   
 
+
+  
 
 
   

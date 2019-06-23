@@ -285,7 +285,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github-zhoukun.github.io/2019/06/23/ssoBase01/">
+    <link itemprop="mainEntityOfPage" href="https://github-zhoukun.github.io/2019/06/23/hello-world/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="拔剑四顾心茫然">
@@ -305,7 +305,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/06/23/ssoBase01/" class="post-title-link" itemprop="url">Untitled</a>
+                <a href="/2019/06/23/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
               
             
           </h1>
@@ -330,7 +330,7 @@
                 
               
 
-              <time title="Created: 2019-06-23 19:13:39" itemprop="dateCreated datePublished" datetime="2019-06-23T19:13:39+08:00">2019-06-23</time>
+              <time title="Created: 2019-06-23 19:40:44" itemprop="dateCreated datePublished" datetime="2019-06-23T19:40:44+08:00">2019-06-23</time>
             
 
             
@@ -367,171 +367,15 @@
       
         
           
-            <p>title: sso一 初始片</p>
-<h1 id="SSO知识概要-初始篇"><a href="#SSO知识概要-初始篇" class="headerlink" title="SSO知识概要 初始篇"></a>SSO知识概要 初始篇</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p> 受惠于人，授惠于人。</p>
-</blockquote>
-<pre><code>我是在16年4月正式踏进了互联网开发这个行业，作为一个统招大专生和手拿自考本科的实习生来说，在上海入职第一家公司实属幸运！ 记得16年的末上海房价疯涨，一天一个价。 金融出现了牛市，闭着眼睛投都能赚钱。表面看起来都是一切美好的开始，18年开始特朗普贸易战，互联网行业开始贩卖焦虑，大数据，区块链，算法，AI，996。互联网科技在这两年的发展速度前所未有。 
-
-快，快点，再快点！ 
-
-知识更新换代快！怎么办？ 只能每天抽出时间学习。其实我是一个有拖延症的人，属于投入了可以坚持很久一旦松懈就会玩手机到睡觉。 工作还是平常都会在网上找大神的文章，萌生了自己写文章的想法！这个想法从18年开始到现在才开始付出行动，说来惭愧！鉴于网上很多文章将的不是特别详细！ 我今天就立个flag。
-
-产出的文章是**通俗易懂**
-</code></pre><h2 id="HTTP-和-Session-、Cookic"><a href="#HTTP-和-Session-、Cookic" class="headerlink" title="HTTP 和 Session 、Cookic"></a>HTTP 和 Session 、Cookic</h2><h4 id="HTTP介绍"><a href="#HTTP介绍" class="headerlink" title="HTTP介绍"></a><a href="https://www.cnblogs.com/wxisme/p/6212797.html" target="_blank" rel="noopener">HTTP介绍</a></h4><p>详细我就不讲了大家可以点进链接查看！我主要讲几点主要的。</p>
-<ul>
-<li><p><strong>基于TCP应用层协议</strong> ：是可靠的 3次握手4次挥手</p>
-</li>
-<li><p><strong>无状态</strong> ：最初的时候设计http只是来返回静态页面 所以并不需要维护连接状态</p>
-</li>
-</ul>
-<p>举个例子： 小明 去 商店 买东西  </p>
-<pre><code>小明 问 服务员 有泡泡糖吗？ 服务员 说 有。
-
-小明 问 服务员 多少钱？  服务员懵逼了？？？
-
-服务员 不记得发生了什么！  
-</code></pre><p>当服务员需要知道每次访问的是谁？上次干了什么？session、cookie这时站了出来！</p>
-<h4 id="Session-、Cookie"><a href="#Session-、Cookie" class="headerlink" title="Session 、Cookie"></a>Session 、Cookie</h4><p><img src="/Users/zhoukun/Downloads/Session_cookic.png" alt="session/cookic"></p>
-<ul>
-<li><p><strong>Session</strong>：存在服务器端  维护了客户端每次请求的一些信息</p>
-</li>
-<li><p><strong>Cookie</strong>：存储在客户端（浏览器）存储量比较小 而且不同的浏览器有不同的限制</p>
-<ul>
-<li><p><strong>javax.servlet.http.Cookie</strong></p>
-<ul>
-<li><p>name：名称</p>
-</li>
-<li><p>value：值</p>
-</li>
-<li><p><strong>maxAge</strong>：单位秒 缓存失效时间 -1000附属直接失效</p>
-</li>
-<li><p><strong>domain</strong>：cookic属于域名 （zk.com） 跨域支持</p>
-</li>
-<li><p>path：cookic属于的路径 /就是全路径  默认当前路径（localhost:8080/get_cookie）</p>
-</li>
-<li><p>secure： true只接受 https</p>
-</li>
-<li><p>httpOnly：true cookie只在http中传输</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>以上 domain   maxAge  是后面操作必备的</p>
-<p>现在我们在来演示一遍 </p>
-<p>小明 去 商店 买东西</p>
-<p>小明 问 服务员 有泡泡糖吗？ 服务员分配一个001编号 并在小本本上记录001的行为然后 服务员 说 有 并且把编号交给小明。</p>
-<p>小明 问 服务员 多少钱 并且把编号告诉 服务员！ 服务员根据编码知道了小明之前问的泡泡糖 服务员告诉小明泡泡糖价格！</p>
-<p>我们把 小明当成浏览器 服务员当前服务器  小本本为Seesion   编号为cookie的信息 我们就不难理解这样设计的初衷了！</p>
-<h2 id="Session一致性"><a href="#Session一致性" class="headerlink" title="Session一致性"></a>Session一致性</h2><p>首先我们来看一张图</p>
-<p><img src="/Users/zhoukun/Downloads/单机、多机.png" alt="war部署"></p>
-<h4 id="部署和扩容"><a href="#部署和扩容" class="headerlink" title="部署和扩容"></a>部署和扩容</h4><p>左边在我们业务量较小的时候基本的部署模式</p>
-<p>右边在业务量增长到单机无法支撑的时候我们就需要扩容（多机部署）</p>
-<ul>
-<li><p><strong>垂直扩容：</strong> 升级内存 带宽 主要做硬件升级  </p>
-</li>
-<li><p><strong>水平扩容：</strong> 常见的就是增加机器 当一台机器QPS500 两台机器就是1000 </p>
-</li>
-<li><blockquote>
-<p>增加机器 就会带来数据一致性问题！如数据、缓存、session</p>
-</blockquote>
-</li>
-</ul>
-<p>互联网开发公司常用的就是水平扩容基本所有服务就是多机部署的！在老东家管易云双十一的时候服务都是20台以上，平常数据迁移也是11台机器部署服务的。老东家大搜车汽车零售软件其实也是双机部署的。<strong>但是机器是昂贵的我们还要充分分析系统的瓶颈，提升单机性能，再考虑加机器吧。</strong></p>
-<h4 id="多机部署的登入问题"><a href="#多机部署的登入问题" class="headerlink" title="多机部署的登入问题"></a>多机部署的登入问题</h4><p>假设现在有个小网站<a href="http://www.ts.com" target="_blank" rel="noopener">www.ts.com</a>  小明打开电脑打开Chrome浏览器登入 </p>
-<p><img src="/Users/zhoukun/Downloads/session一致性问题.png" alt="session一致性问题"></p>
-<p>1.0 小明登入 <a href="http://www.ts.com" target="_blank" rel="noopener">www.ts.com</a></p>
-<p>1.1 通过负载均衡 路由到0.3机器</p>
-<p>1.2 验证密码账号成功 设置isLogin=true </p>
-<p>1.3 携带jsession并返回</p>
-<p>2.0 再次访问 进入的是0.4这台机器 这个台机器的seesion是没有islogin这个状态的 需要重新登入</p>
-<p>要解决seesion一致性问题引出了以下几种方案：</p>
-<ul>
-<li><p><strong>粘性session</strong></p>
-</li>
-<li><p><strong>session复制</strong></p>
-</li>
-<li><p><strong>session统一存储</strong></p>
-</li>
-<li><p><strong>token方式</strong></p>
-</li>
-</ul>
-<h4 id="一：粘性session"><a href="#一：粘性session" class="headerlink" title="一：粘性session"></a>一：粘性session</h4><p>何为粘性session？ 这个切入点在负载均衡这里。  负载均衡分为两种：</p>
-<ul>
-<li><p><strong>硬件负载均衡：</strong> 代表有F5</p>
-</li>
-<li><p><strong>软件负载均衡：</strong>代表有nginx、lvs</p>
-<p>这里只说软件负载，我们正常应用会挂个nginx，通过它我们可以设置转发规则。 客户端IP取hash值%机器数量 = 1 那么下一次请求 IP为<strong>112.0.0.1</strong>结果还是1， 每次路由都是相同机器。</p>
-</li>
-</ul>
-<p><strong>缺点：</strong>如果<strong>192.0.0.3</strong> 和 <strong>192.0.0.4</strong>两台机器其中<strong>192.0.0.3</strong>宕掉，产生单点故障。</p>
-<h4 id="二：session复制"><a href="#二：session复制" class="headerlink" title="二：session复制"></a>二：session复制</h4><p><img src="/Users/zhoukun/Downloads/session复制.png" alt="session复制"></p>
-<p>这是Tomcat提供的解决方案，具体是两台tomcat服务器之间进行session数据同步！</p>
-<p><strong>缺点：</strong> 多台服务器之间数据同步造成性能问题！</p>
-<h4 id="三：session统一存储"><a href="#三：session统一存储" class="headerlink" title="三：session统一存储"></a>三：session统一存储</h4><p><img src="/Users/zhoukun/Downloads/session统一存储.png" alt="session统一存储"></p>
-<p>为了减轻服务器之间同步压力，既然是每台服务器都存储session为什么不统一存储起来，统一的访问呢？ </p>
-<p>这就是第三种方案session统一存储，存储的介质很多：</p>
-<ul>
-<li><p>Mysql</p>
-</li>
-<li><p>Redis</p>
-</li>
-</ul>
-<p>比较多的公司都是通过Redis来实现的，常用的方式我们可以借助spring-session轻松实现统一储存。</p>
-<p><strong>spring-boot 工程打个样：<a href="https://docs.spring.io/spring-session/docs/2.1.6.BUILD-SNAPSHOT/reference/html5/guides/boot-redis.html" target="_blank" rel="noopener">官方文档</a></strong></p>
-<ol>
-<li>POM引入坐标：</li>
-</ol>
-<figure class="highlight smalltalk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">     &lt;groupId&gt;org.springframework.session&lt;/groupId&gt;</span><br><span class="line">     &lt;artifactId&gt;spring-session-data-redis&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">     &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;!--有点坑 需要引入这两包 依赖了内部的api 如下--&gt;</span><br><span class="line">&lt;!--<span class="type">SpringSessionRememberMeServices</span>--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-security-core&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;<span class="number">5.1</span><span class="number">.5</span>.<span class="type">RELEASE</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-security-web&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;<span class="number">5.1</span><span class="number">.5</span>.<span class="type">RELEASE</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>propertis 文件新增配置</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#session 存储方式</span><br><span class="line">spring.session.store-type=redis</span><br><span class="line"># 会话超时。如果未指定持续时间后缀，则使用秒。</span><br><span class="line">server.servlet.session.timeout=3600</span><br><span class="line">#sessions flush mode。</span><br><span class="line">spring.session.redis.flush-mode=on-save</span><br><span class="line">#用于存储会话的密钥的命名空间。</span><br><span class="line">spring.session.redis.namespace = spring:session:ts</span><br><span class="line"></span><br><span class="line">#Redis服务器主机。</span><br><span class="line">spring.redis.host = 129.28.195.236</span><br><span class="line">#redis服务器的登录密码。</span><br><span class="line">spring.redis.password =</span><br><span class="line">#Redis服务器端口。</span><br><span class="line">spring.redis.port = 6379</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li><p>登入web </p>
-</li>
-<li><p>我们打开redis客户端可以看到</p>
-</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; keys *</span><br><span class="line">1) <span class="string">"trojan2"</span></span><br><span class="line">2) <span class="string">"spring\xc3\xaf\xc2\xbc\xc2\x9asession:sessions:expires:320b113f-820f-470c-8982-5eed9afbdddb"</span></span><br><span class="line">3) <span class="string">"spring\xc3\xaf\xc2\xbc\xc2\x9asession:sessions:320b113f-820f-470c-8982-5eed9afbdddb"</span></span><br><span class="line">4) <span class="string">"trojan1"</span></span><br><span class="line">5) <span class="string">"Back2"</span></span><br><span class="line">6) <span class="string">"Back3"</span></span><br><span class="line">7) <span class="string">"Back1"</span></span><br><span class="line">8) <span class="string">"spring\xc3\xaf\xc2\xbc\xc2\x9asession:expirations:1561205820000"</span></span><br><span class="line">127.0.0.1:6379&gt;</span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>看到这里我们已经使用spring-session搭建了一个使用redis统一存储session应用</li>
-</ol>
-<h4 id="四：Token方式"><a href="#四：Token方式" class="headerlink" title="四：Token方式"></a>四：Token方式</h4><p>我们先考虑个几个问题</p>
-<ol>
-<li><p>如果浏览器禁用cookie，无法获取jessionid怎么？</p>
-</li>
-<li><p>当我们面对app这种平台如何进行登入管理？</p>
-</li>
-<li><p>跨域cookie无法传送的怎么办？</p>
-</li>
-</ol>
-<p>衍生了另一种方式 <strong>Token</strong> 常用方式，它既可以当作请求参数传入也可以放入cookie中！<strong>Token</strong>就是一串唯一身份标识符。常用的Token一般识用账户唯一信息+加密的key通过加密算法（HSA/MD5）等方式生成一串唯一标识符。</p>
-<p>接下来我来介绍一种封装<strong>Token</strong>框架 <a href="https://jwt.io/" target="_blank" rel="noopener"><strong>JWT</strong></a>（Json Web Token）。</p>
-<p><img src="/Users/zhoukun/Downloads/jwt.jpg" alt="jwt"></p>
-<p>通过这张官网的图我们可以简单得知 它分为三块：</p>
-<ul>
-<li><p><strong>HEADER</strong>：头 包含了 <em>加密算法</em> 和 <em>加密类型</em></p>
-</li>
-<li><p><strong>PAYLOAD</strong>：载体 包含了 <em>用户信息（用户id）</em>和 <em>jwt预设的信息（失效时间）</em></p>
-</li>
-<li><p><strong>VERIFY SIGNATURE</strong>：签名  这个是后台验证的关键 </p>
-</li>
-</ul>
-<p>需要的注意 <strong>HEADER</strong>，<strong>PAYLOAD</strong> 都只是BSAEURL64编码了一下  所以很容易被人破解，请不要存储敏感信息。</p>
-<p><strong>不讲虚的我们来点干货，上代码-&gt;</strong></p>
-<ol>
-<li>引入Jar包</li>
-</ol>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">         &lt;!--jwt 认证--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.auth0&lt;<span class="regexp">/groupId&gt;</span></span><br><span class="line"><span class="regexp">    &lt;artifactId&gt;java-jwt&lt;/</span>artifactId&gt;</span><br><span class="line">    &lt;version&gt;<span class="number">3.8</span><span class="number">.1</span>&lt;<span class="regexp">/version&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>dependency&gt;</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>编写工具类</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * jwt TOKEN 生成 解析</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> zhoukun</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Slf</span>4j</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JwtUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">JwtUtil</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 加密Key</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String SECRET = <span class="string">"c61070db-450b-419e-8ff9-e45fae4f6e3c"</span>;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 发行人</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String ISSUER = <span class="string">"JackKun"</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 生成Token</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> claims     主体</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> expireDate 过期时间</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">generateToken</span><span class="params">(Map&lt;String, String&gt; claims, Date expireDate)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//申明加密算法</span></span><br><span class="line">            Algorithm algorithm = Algorithm.HMAC256(SECRET);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//创建JWT</span></span><br><span class="line">            JWTCreator.Builder builder = JWT.create()</span><br><span class="line">                    .withIssuer(ISSUER)</span><br><span class="line">                    .withExpiresAt(expireDate);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//设置主体参数</span></span><br><span class="line">            claims.forEach((k, v) -&gt; &#123;</span><br><span class="line">                builder.withClaim(k, v);</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//返回加密签名 token</span></span><br><span class="line">            <span class="keyword">return</span> builder.sign(algorithm);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IllegalArgumentException e) &#123;</span><br><span class="line">            log.error(<span class="string">"生成Token 非法参数异常! errMsg:&#123;&#125;"</span>, e);</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (JWTCreationException e) &#123;</span><br><span class="line">            log.error(<span class="string">"生成Token 创建JWT异常! errMsg:&#123;&#125;"</span>, e);</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 验证Token</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Map&lt;String, String&gt; <span class="title">verifyToken</span><span class="params">(String token)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//申明加密算法</span></span><br><span class="line">        Algorithm algorithm = Algorithm.HMAC256(SECRET);</span><br><span class="line"></span><br><span class="line">        JWTVerifier verifier = JWT.require(algorithm)</span><br><span class="line">                .withIssuer(ISSUER)</span><br><span class="line">                .build();</span><br><span class="line">        DecodedJWT jwt = verifier.verify(token);</span><br><span class="line"></span><br><span class="line">        Map&lt;String, String&gt; resultMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        Map&lt;String, Claim&gt; claimMap = jwt.getClaims();</span><br><span class="line">        claimMap.forEach((k, v) -&gt; resultMap.put(k, v.asString()));</span><br><span class="line">        <span class="keyword">return</span> resultMap;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个工具类稍微比较简陋，朋友可以自行研究研究！具体通过它实现SSO我们先放到后面再讲，这里就不在展开讲了！</p>
-<h2 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h2><p>上面讲了这么多只是讲了一些基础 后面会讲讲什么是单点登入？切入点？我们怎么来实现？跨域如何解决？</p>
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
           
         
@@ -588,7 +432,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github-zhoukun.github.io/2019/01/26/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://github-zhoukun.github.io/2019/06/23/ssoBase01/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="拔剑四顾心茫然">
@@ -608,7 +452,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/01/26/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+                <a href="/2019/06/23/ssoBase01/" class="post-title-link" itemprop="url">一：SSO 基础篇</a>
               
             
           </h1>
@@ -633,9 +477,13 @@
                 
               
 
-              <time title="Created: 2019-01-26 15:18:06" itemprop="dateCreated datePublished" datetime="2019-01-26T15:18:06+08:00">2019-01-26</time>
+              <time title="Created: 2019-06-23 19:34:18 / Modified: 19:42:42" itemprop="dateCreated datePublished" datetime="2019-06-23T19:34:18+08:00">2019-06-23</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -670,15 +518,170 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <h1 id="SSO知识概要-初始篇"><a href="#SSO知识概要-初始篇" class="headerlink" title="SSO知识概要 初始篇"></a>SSO知识概要 初始篇</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p> 受惠于人，授惠于人。</p>
+</blockquote>
+<pre><code>我是在16年4月正式踏进了互联网开发这个行业，作为一个统招大专生和手拿自考本科的实习生来说，在上海入职第一家公司实属幸运！ 记得16年的末上海房价疯涨，一天一个价。 金融出现了牛市，闭着眼睛投都能赚钱。表面看起来都是一切美好的开始，18年开始特朗普贸易战，互联网行业开始贩卖焦虑，大数据，区块链，算法，AI，996。互联网科技在这两年的发展速度前所未有。 
+
+快，快点，再快点！ 
+
+知识更新换代快！怎么办？ 只能每天抽出时间学习。其实我是一个有拖延症的人，属于投入了可以坚持很久一旦松懈就会玩手机到睡觉。 工作还是平常都会在网上找大神的文章，萌生了自己写文章的想法！这个想法从18年开始到现在才开始付出行动，说来惭愧！鉴于网上很多文章将的不是特别详细！ 我今天就立个flag。
+
+产出的文章是**通俗易懂**
+</code></pre><h2 id="HTTP-和-Session-、Cookic"><a href="#HTTP-和-Session-、Cookic" class="headerlink" title="HTTP 和 Session 、Cookic"></a>HTTP 和 Session 、Cookic</h2><h4 id="HTTP介绍"><a href="#HTTP介绍" class="headerlink" title="HTTP介绍"></a><a href="https://www.cnblogs.com/wxisme/p/6212797.html" target="_blank" rel="noopener">HTTP介绍</a></h4><p>详细我就不讲了大家可以点进链接查看！我主要讲几点主要的。</p>
+<ul>
+<li><p><strong>基于TCP应用层协议</strong> ：是可靠的 3次握手4次挥手</p>
+</li>
+<li><p><strong>无状态</strong> ：最初的时候设计http只是来返回静态页面 所以并不需要维护连接状态</p>
+</li>
+</ul>
+<p>举个例子： 小明 去 商店 买东西  </p>
+<pre><code>小明 问 服务员 有泡泡糖吗？ 服务员 说 有。
+
+小明 问 服务员 多少钱？  服务员懵逼了？？？
+
+服务员 不记得发生了什么！  
+</code></pre><p>当服务员需要知道每次访问的是谁？上次干了什么？session、cookie这时站了出来！</p>
+<h4 id="Session-、Cookie"><a href="#Session-、Cookie" class="headerlink" title="Session 、Cookie"></a>Session 、Cookie</h4><p><img src="../images/Session_cookic.png" alt="session/cookic"><br></p>
+<ul>
+<li><p><strong>Session</strong>：存在服务器端  维护了客户端每次请求的一些信息</p>
+</li>
+<li><p><strong>Cookie</strong>：存储在客户端（浏览器）存储量比较小 而且不同的浏览器有不同的限制</p>
+<ul>
+<li><p><strong>javax.servlet.http.Cookie</strong></p>
+<ul>
+<li><p>name：名称</p>
+</li>
+<li><p>value：值</p>
+</li>
+<li><p><strong>maxAge</strong>：单位秒 缓存失效时间 -1000附属直接失效</p>
+</li>
+<li><p><strong>domain</strong>：cookic属于域名 （zk.com） 跨域支持</p>
+</li>
+<li><p>path：cookic属于的路径 /就是全路径  默认当前路径（localhost:8080/get_cookie）</p>
+</li>
+<li><p>secure： true只接受 https</p>
+</li>
+<li><p>httpOnly：true cookie只在http中传输</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>以上 domain   maxAge  是后面操作必备的</p>
+<p>现在我们在来演示一遍 </p>
+<p>小明 去 商店 买东西</p>
+<p>小明 问 服务员 有泡泡糖吗？ 服务员分配一个001编号 并在小本本上记录001的行为然后 服务员 说 有 并且把编号交给小明。</p>
+<p>小明 问 服务员 多少钱 并且把编号告诉 服务员！ 服务员根据编码知道了小明之前问的泡泡糖 服务员告诉小明泡泡糖价格！</p>
+<p>我们把 小明当成浏览器 服务员当前服务器  小本本为Seesion   编号为cookie的信息 我们就不难理解这样设计的初衷了！</p>
+<h2 id="Session一致性"><a href="#Session一致性" class="headerlink" title="Session一致性"></a>Session一致性</h2><p>首先我们来看一张图</p>
+<p><img src="../images/单机、多机.png" alt="war部署"></p>
+<h4 id="部署和扩容"><a href="#部署和扩容" class="headerlink" title="部署和扩容"></a>部署和扩容</h4><p>左边在我们业务量较小的时候基本的部署模式</p>
+<p>右边在业务量增长到单机无法支撑的时候我们就需要扩容（多机部署）</p>
+<ul>
+<li><p><strong>垂直扩容：</strong> 升级内存 带宽 主要做硬件升级  </p>
+</li>
+<li><p><strong>水平扩容：</strong> 常见的就是增加机器 当一台机器QPS500 两台机器就是1000 </p>
+</li>
+<li><blockquote>
+<p>增加机器 就会带来数据一致性问题！如数据、缓存、session</p>
+</blockquote>
+</li>
+</ul>
+<p>互联网开发公司常用的就是水平扩容基本所有服务就是多机部署的！在老东家管易云双十一的时候服务都是20台以上，平常数据迁移也是11台机器部署服务的。老东家大搜车汽车零售软件其实也是双机部署的。<strong>但是机器是昂贵的我们还要充分分析系统的瓶颈，提升单机性能，再考虑加机器吧。</strong></p>
+<h4 id="多机部署的登入问题"><a href="#多机部署的登入问题" class="headerlink" title="多机部署的登入问题"></a>多机部署的登入问题</h4><p>假设现在有个小网站<a href="http://www.ts.com" target="_blank" rel="noopener">www.ts.com</a>  小明打开电脑打开Chrome浏览器登入 </p>
+<p><img src="../images/session一致性问题.png" alt="session一致性问题"></p>
+<p>1.0 小明登入 <a href="http://www.ts.com" target="_blank" rel="noopener">www.ts.com</a></p>
+<p>1.1 通过负载均衡 路由到0.3机器</p>
+<p>1.2 验证密码账号成功 设置isLogin=true </p>
+<p>1.3 携带jsession并返回</p>
+<p>2.0 再次访问 进入的是0.4这台机器 这个台机器的seesion是没有islogin这个状态的 需要重新登入</p>
+<p>要解决seesion一致性问题引出了以下几种方案：</p>
+<ul>
+<li><p><strong>粘性session</strong></p>
+</li>
+<li><p><strong>session复制</strong></p>
+</li>
+<li><p><strong>session统一存储</strong></p>
+</li>
+<li><p><strong>token方式</strong></p>
+</li>
+</ul>
+<h4 id="一：粘性session"><a href="#一：粘性session" class="headerlink" title="一：粘性session"></a>一：粘性session</h4><p>何为粘性session？ 这个切入点在负载均衡这里。  负载均衡分为两种：</p>
+<ul>
+<li><p><strong>硬件负载均衡：</strong> 代表有F5</p>
+</li>
+<li><p><strong>软件负载均衡：</strong>代表有nginx、lvs</p>
+<p>这里只说软件负载，我们正常应用会挂个nginx，通过它我们可以设置转发规则。 客户端IP取hash值%机器数量 = 1 那么下一次请求 IP为<strong>112.0.0.1</strong>结果还是1， 每次路由都是相同机器。</p>
+</li>
+</ul>
+<p><strong>缺点：</strong>如果<strong>192.0.0.3</strong> 和 <strong>192.0.0.4</strong>两台机器其中<strong>192.0.0.3</strong>宕掉，产生单点故障。</p>
+<h4 id="二：session复制"><a href="#二：session复制" class="headerlink" title="二：session复制"></a>二：session复制</h4><p><img src="../images/session复制.png" alt="session复制"></p>
+<p>这是Tomcat提供的解决方案，具体是两台tomcat服务器之间进行session数据同步！</p>
+<p><strong>缺点：</strong> 多台服务器之间数据同步造成性能问题！</p>
+<h4 id="三：session统一存储"><a href="#三：session统一存储" class="headerlink" title="三：session统一存储"></a>三：session统一存储</h4><p><img src="../images/session统一存储.png" alt="session统一存储"></p>
+<p>为了减轻服务器之间同步压力，既然是每台服务器都存储session为什么不统一存储起来，统一的访问呢？ </p>
+<p>这就是第三种方案session统一存储，存储的介质很多：</p>
+<ul>
+<li><p>Mysql</p>
+</li>
+<li><p>Redis</p>
+</li>
+</ul>
+<p>比较多的公司都是通过Redis来实现的，常用的方式我们可以借助spring-session轻松实现统一储存。</p>
+<p><strong>spring-boot 工程打个样：<a href="https://docs.spring.io/spring-session/docs/2.1.6.BUILD-SNAPSHOT/reference/html5/guides/boot-redis.html" target="_blank" rel="noopener">官方文档</a></strong></p>
+<ol>
+<li>POM引入坐标：</li>
+</ol>
+<figure class="highlight smalltalk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">     &lt;groupId&gt;org.springframework.session&lt;/groupId&gt;</span><br><span class="line">     &lt;artifactId&gt;spring-session-data-redis&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">     &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;!--有点坑 需要引入这两包 依赖了内部的api 如下--&gt;</span><br><span class="line">&lt;!--<span class="type">SpringSessionRememberMeServices</span>--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-security-core&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;<span class="number">5.1</span><span class="number">.5</span>.<span class="type">RELEASE</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.security&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-security-web&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;<span class="number">5.1</span><span class="number">.5</span>.<span class="type">RELEASE</span>&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>propertis 文件新增配置</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#session 存储方式</span><br><span class="line">spring.session.store-type=redis</span><br><span class="line"># 会话超时。如果未指定持续时间后缀，则使用秒。</span><br><span class="line">server.servlet.session.timeout=3600</span><br><span class="line">#sessions flush mode。</span><br><span class="line">spring.session.redis.flush-mode=on-save</span><br><span class="line">#用于存储会话的密钥的命名空间。</span><br><span class="line">spring.session.redis.namespace = spring:session:ts</span><br><span class="line"></span><br><span class="line">#Redis服务器主机。</span><br><span class="line">spring.redis.host = 129.28.195.236</span><br><span class="line">#redis服务器的登录密码。</span><br><span class="line">spring.redis.password =</span><br><span class="line">#Redis服务器端口。</span><br><span class="line">spring.redis.port = 6379</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><p>登入web </p>
+</li>
+<li><p>我们打开redis客户端可以看到</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; keys *</span><br><span class="line">1) <span class="string">"trojan2"</span></span><br><span class="line">2) <span class="string">"spring\xc3\xaf\xc2\xbc\xc2\x9asession:sessions:expires:320b113f-820f-470c-8982-5eed9afbdddb"</span></span><br><span class="line">3) <span class="string">"spring\xc3\xaf\xc2\xbc\xc2\x9asession:sessions:320b113f-820f-470c-8982-5eed9afbdddb"</span></span><br><span class="line">4) <span class="string">"trojan1"</span></span><br><span class="line">5) <span class="string">"Back2"</span></span><br><span class="line">6) <span class="string">"Back3"</span></span><br><span class="line">7) <span class="string">"Back1"</span></span><br><span class="line">8) <span class="string">"spring\xc3\xaf\xc2\xbc\xc2\x9asession:expirations:1561205820000"</span></span><br><span class="line">127.0.0.1:6379&gt;</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>看到这里我们已经使用spring-session搭建了一个使用redis统一存储session应用</li>
+</ol>
+<h4 id="四：Token方式"><a href="#四：Token方式" class="headerlink" title="四：Token方式"></a>四：Token方式</h4><p>我们先考虑个几个问题</p>
+<ol>
+<li><p>如果浏览器禁用cookie，无法获取jessionid怎么？</p>
+</li>
+<li><p>当我们面对app这种平台如何进行登入管理？</p>
+</li>
+<li><p>跨域cookie无法传送的怎么办？</p>
+</li>
+</ol>
+<p>衍生了另一种方式 <strong>Token</strong> 常用方式，它既可以当作请求参数传入也可以放入cookie中！<strong>Token</strong>就是一串唯一身份标识符。常用的Token一般识用账户唯一信息+加密的key通过加密算法（HSA/MD5）等方式生成一串唯一标识符。</p>
+<p>接下来我来介绍一种封装<strong>Token</strong>框架 <a href="https://jwt.io/" target="_blank" rel="noopener"><strong>JWT</strong></a>（Json Web Token）。</p>
+<p><img src="../images/jwt.jpg" alt="jwt"></p>
+<p>通过这张官网的图我们可以简单得知 它分为三块：</p>
+<ul>
+<li><p><strong>HEADER</strong>：头 包含了 <em>加密算法</em> 和 <em>加密类型</em></p>
+</li>
+<li><p><strong>PAYLOAD</strong>：载体 包含了 <em>用户信息（用户id）</em>和 <em>jwt预设的信息（失效时间）</em></p>
+</li>
+<li><p><strong>VERIFY SIGNATURE</strong>：签名  这个是后台验证的关键 </p>
+</li>
+</ul>
+<p>需要的注意 <strong>HEADER</strong>，<strong>PAYLOAD</strong> 都只是BSAEURL64编码了一下  所以很容易被人破解，请不要存储敏感信息。</p>
+<p><strong>不讲虚的我们来点干货，上代码-&gt;</strong></p>
+<ol>
+<li>引入Jar包</li>
+</ol>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> &lt;!--jwt 认证--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.auth0&lt;<span class="regexp">/groupId&gt;</span></span><br><span class="line"><span class="regexp">    &lt;artifactId&gt;java-jwt&lt;/</span>artifactId&gt;</span><br><span class="line">    &lt;version&gt;<span class="number">3.8</span><span class="number">.1</span>&lt;<span class="regexp">/version&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>dependency&gt;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>编写工具类</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * jwt TOKEN 生成 解析</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> zhoukun</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Slf</span>4j</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JwtUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">JwtUtil</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 加密Key</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String SECRET = <span class="string">"c61070db-450b-419e-8ff9-e45fae4f6e3c"</span>;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 发行人</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String ISSUER = <span class="string">"JackKun"</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 生成Token</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> claims     主体</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> expireDate 过期时间</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">generateToken</span><span class="params">(Map&lt;String, String&gt; claims, Date expireDate)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//申明加密算法</span></span><br><span class="line">            Algorithm algorithm = Algorithm.HMAC256(SECRET);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//创建JWT</span></span><br><span class="line">            JWTCreator.Builder builder = JWT.create()</span><br><span class="line">                    .withIssuer(ISSUER)</span><br><span class="line">                    .withExpiresAt(expireDate);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//设置主体参数</span></span><br><span class="line">            claims.forEach((k, v) -&gt; &#123;</span><br><span class="line">                builder.withClaim(k, v);</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//返回加密签名 token</span></span><br><span class="line">            <span class="keyword">return</span> builder.sign(algorithm);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IllegalArgumentException e) &#123;</span><br><span class="line">            log.error(<span class="string">"生成Token 非法参数异常! errMsg:&#123;&#125;"</span>, e);</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (JWTCreationException e) &#123;</span><br><span class="line">            log.error(<span class="string">"生成Token 创建JWT异常! errMsg:&#123;&#125;"</span>, e);</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 验证Token</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Map&lt;String, String&gt; <span class="title">verifyToken</span><span class="params">(String token)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//申明加密算法</span></span><br><span class="line">        Algorithm algorithm = Algorithm.HMAC256(SECRET);</span><br><span class="line"></span><br><span class="line">        JWTVerifier verifier = JWT.require(algorithm)</span><br><span class="line">                .withIssuer(ISSUER)</span><br><span class="line">                .build();</span><br><span class="line">        DecodedJWT jwt = verifier.verify(token);</span><br><span class="line"></span><br><span class="line">        Map&lt;String, String&gt; resultMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        Map&lt;String, Claim&gt; claimMap = jwt.getClaims();</span><br><span class="line">        claimMap.forEach((k, v) -&gt; resultMap.put(k, v.asString()));</span><br><span class="line">        <span class="keyword">return</span> resultMap;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个工具类稍微比较简陋，朋友可以自行研究研究！具体通过它实现SSO我们先放到后面再讲，这里就不在展开讲了！</p>
+<h2 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h2><p>上面讲了这么多只是讲了一些基础 后面会讲讲什么是单点登入？切入点？我们怎么来实现？跨域如何解决？</p>
 
           
         
